@@ -13,7 +13,8 @@ type FormController struct {
 func (c *FormController) Upload() {
 	file, fileHeader, err := c.GetFile("file")
 	if err != nil {
-		log.Fatal("上传文件失败")
+		log.Print("上传文件失败:", err)
+		return
 	}
 	defer file.Close()
 	c.SaveToFile("file", "static/upload"+fileHeader.Filename)

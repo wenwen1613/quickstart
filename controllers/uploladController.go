@@ -10,6 +10,7 @@ type FormController struct {
 	beego.Controller
 }
 
+// @router /upload [post]
 func (c *FormController) Upload() {
 	file, fileHeader, err := c.GetFile("file")
 	if err != nil {
